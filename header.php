@@ -21,7 +21,7 @@
                         <a href="#">Play</a>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <a href="login.php">Login</a>
                     </li>
                     <li>
                         <a href="#">Admin</a>
@@ -30,7 +30,7 @@
                         <a href="#">Checkout</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="registration.php">Registration</a>
                     </li>
 
                 </ul>
