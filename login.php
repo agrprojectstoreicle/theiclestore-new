@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      
                             
                             // Redirect user to welcome page
-                            header("location: index.php");
+                            header("location: play.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -140,7 +140,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="registeration.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="registration.php">Sign up now</a>.</p>
         </form>
     </header>
 

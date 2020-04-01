@@ -5,20 +5,65 @@
  */
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    
+    padding-top: 90px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.navbar 
+{
+    background-color:white;
+    
+}
+.carousel-inner item
+{
+    width: 100%; 
+
+}
+
+div.container 
+{
+    height: auto;
+    width: 100%;
+}
+.container 
+{
+margin-top: 0.5%;
+}
+.container img
+{
+margin-top:1%;
+}
+.nav-wrapper
+{
+    margin-top: 5px;
+    background-color:darkgray; 
+}
+.nav-wrapper li a
+{
+    color: black;
 }
 
 .slide-image {
     width: 100%;
+
 }
 
+.carousel-inner item 
+{
+    
+    width: 100%;
+    
+}
 .carousel-holder {
     margin-bottom: 30px;
+    
+
 }
 
 .carousel-control,
 .item {
     border-radius: 4px;
+
 }
 
 .caption {
@@ -32,6 +77,8 @@ body {
 
 .thumbnail img {
     width: 100%;
+ 
+
 }
 
 .ratings {
@@ -42,10 +89,11 @@ body {
 
 .thumbnail {
     padding: 0;
+    
 }
 
 .thumbnail .caption-full {
-    padding: 9px;
+    padding: 40px;
     color: #333;
 }
 

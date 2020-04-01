@@ -3,7 +3,9 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <a class="navbar-brand" href="index.php">
+          <img src="" alt="" >
+        ICLE</a>                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -14,20 +16,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                   <li>
-         
-</li>
+                   
                     <li>
-                        <a href="#">Play</a>
+                        <a href="play.php">Play</a>
                     </li>
                     <li>
                         <a href="login.php">Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Admin</a>
-                    </li>
-                     <li>
-                        <a href="#">Checkout</a>
                     </li>
                     <li>
                         <a href="registration.php">Registration</a>

@@ -1,216 +1,79 @@
 
-<?php include("header.php") ?>
+<?php include("header.php");
+include("config.php");
+include("functions.php");
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ICLE</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
     <!-- Page Content -->
+
+<!-- Page Content -->
+</head>
+    <body>
     <div class="container">
 
+      <header>
+            <h1 class="text-center">PLAY & WIN </h1>
+            <h2 class="text-center bg-warning">
+
+</h2>
+    </header>
+<div class="container">
+
         <!-- Jumbotron Header -->
-        <header>
-            <h1>Shop</h1>
-        </header>
 
         <hr>
 
         <!-- /.row -->
-
-        <!-- Page Features -->
         <div class="row text-center">
 
-         <?php function get_products() {
+    <?php get_products_play_page(); 
+?>
+        </div>
+    </div>
 
+        </div>
 
-$query = query(" SELECT * FROM product");
-confirm($query);
+<?php    
+include("footer.php");
 
-$rows = mysqli_num_rows($query); // Get total of mumber of rows from the database
-
-
-if(isset($_GET['page'])){ //get page from URL if its there
-
-    $page = preg_replace('#[^0-9]#', '', $_GET['page']);//filter everything but numbers
-
-
-
-} else{// If the page url variable is not present force it to be number 1
-
-    $page = 1;
-
-}
-
-
-$perPage = 6; // Items per page here 
-
-$lastPage = ceil($rows / $perPage); // Get the value of the last page
-
-
-// Be sure URL variable $page(page number) is no lower than page 1 and no higher than $lastpage
-
-if($page < 1){ // If it is less than 1
-
-    $page = 1; // force if to be 1
-
-}elseif($page > $lastPage){ // if it is greater than $lastpage
-
-    $page = $lastPage; // force it to be $lastpage's value
-
-}
-
-
-
-$middleNumbers = ''; // Initialize this variable
-
-// This creates the numbers to click in between the next and back buttons
-
-
-$sub1 = $page - 1;
-$sub2 = $page - 2;
-$add1 = $page + 1;
-$add2 = $page + 2;
-
-
-
-if($page == 1){
-
-      $middleNumbers .= '<li class="page-item active"><a>' .$page. '</a></li>';
-
-      $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">' .$add1. '</a></li>';
-
-} elseif ($page == $lastPage) {
+?>
     
-      $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub1.'">' .$sub1. '</a></li>';
-      $middleNumbers .= '<li class="page-item active"><a>' .$page. '</a></li>';
+        <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-}elseif ($page > 2 && $page < ($lastPage -1)) {
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-      $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub2.'">' .$sub2. '</a></li>';
+</body>
 
-      $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$sub1.'">' .$sub1. '</a></li>';
+</html>
 
-      $middleNumbers .= '<li class="page-item active"><a>' .$page. '</a></li>';
 
-         $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">' .$add1. '</a></li>';
 
-      $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add2.'">' .$add2. '</a></li>';
 
-     
 
 
-} elseif($page > 1 && $page < $lastPage){
 
-     $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page= '.$sub1.'">' .$sub1. '</a></li>';
 
-     $middleNumbers .= '<li class="page-item active"><a>' .$page. '</a></li>';
- 
-     $middleNumbers .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$add1.'">' .$add1. '</a></li>';
 
-
-     
-
-
-}
-
-
-// This line sets the "LIMIT" range... the 2 values we place to choose a range of rows from database in our query
-
-
-$limit = 'LIMIT ' . ($page-1) * $perPage . ',' . $perPage;
-
-
-
-
-// $query2 is what we will use to to display products with out $limit variable
-
-$query2 = query(" SELECT * FROM products $limit");
-confirm($query2);
-
-
-$outputPagination = ""; // Initialize the pagination output variable
-
-
-// if($lastPage != 1){
-
-//    echo "Page $page of $lastPage";
-
-
-// }
-
-
-  // If we are not on page one we place the back link
-
-if($page != 1){
-
-
-    $prev  = $page - 1;
-
-    $outputPagination .='<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$prev.'">Back</a></li>';
-}
-
- // Lets append all our links to this variable that we can use this output pagination
-
-$outputPagination .= $middleNumbers;
-
-
-// If we are not on the very last page we the place the next link
-
-if($page != $lastPage){
-
-
-    $next = $page + 1;
-
-    $outputPagination .='<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$next.'">Next</a></li>';
-
-}
-
-
-// Doen with pagination
-
-
-
-// Remember we use query 2 below :)
-
-while($row = fetch_array($query2)) {
-
-$product_image = display_image($row['product_image']);
-
-$product = <<<DELIMETER
-
-<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail">
-        <a href="item.php?id={$row['product_id']}"><img style="height:90px" src="../resources/{$product_image}" alt=""></a>
-        <div class="caption">
-            <h4 class="pull-right">&#36;{$row['product_price']}</h4>
-            <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
-            </h4>
-            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-             <a class="btn btn-primary" target="_blank" href="../resources/cart.php?add={$row['product_id']}">Add to cart</a>
-        </div>
-
-
-       
-    </div>
-</div>
-
-DELIMETER;
-
-echo $product;
-
-
-        }
-
-
-       echo "<div style='clear:both' class='text-center'><ul class='pagination'>{$outputPagination}</ul></div>";
-
-
-} ?>
-
-
-        </div>
-        <!-- /.row -->
-
-      
-
-    </div>
-    <!-- /.container -->
-
-
-<?php include("footer.php") ?>
