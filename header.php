@@ -20,6 +20,9 @@
                     <li>
                         <a href="play.php">Play</a>
                     </li>
+                        <li>
+                        <a href="category.php?id=1">Console's & Games</a>
+                    </li>
                     <li>
                         <a href="login.php">Login</a>
                     </li>

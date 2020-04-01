@@ -1,4 +1,4 @@
-
+ 
 <?php
 include("header.php");
 include("config.php");
@@ -71,11 +71,12 @@ include("functions.php");
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 
 
-                <div class="row">
+               
+<div class="row">
 <?php get_products();   ?>
                                         
                          </div>

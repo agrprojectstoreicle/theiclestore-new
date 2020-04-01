@@ -62,18 +62,17 @@ confirm($query);
             <div class="col-lg-12">
                 <h3 align="center" >Latest Products</h3>
             </div>
-    
+        
         <!-- /.row -->
-
         <!-- Page Features -->
         <div class="row text-center">
 
-    <?php 
+<?php 
 
-$query1 = query(" SELECT * FROM product WHERE p_category_id = " . escape_string($_GET['id']) . " ");
-confirm($query1);
+$query = query(" SELECT * FROM product WHERE p_category_id = " . escape_string($_GET['id']) . " ");
+confirm($query);
 
-while($row = fetch_array($query1)) {
+while($row = fetch_array($query)) {
 
 $p_image = display_image($row['p_image']);
 
