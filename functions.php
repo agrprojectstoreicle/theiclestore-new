@@ -1,5 +1,4 @@
 <?php 
-
 // helper function
 
 function redirect($location){
@@ -51,12 +50,11 @@ function send_message() {
    
     if(isset($_POST['submit'])){ 
 
-        $to          = "someEmailaddress@gmail.com";
-        $from_name   =   $_POST['name'];
-        $subject     =   $_POST['subject'];
-        $email       =   $_POST['email'];
-        $message     =   $_POST['message'];
-
+        $to          = $_POST['email'];
+        $from_name   = $_POST['name'];
+        $subject     = $_POST['subject'];
+        $email = "khannamk131@gmail.com";
+        $message = $_POST['message'];
 
         $headers = "From: {$from_name} {$email}";
 
@@ -325,6 +323,92 @@ return $upload_directory  . $picture;
 
 
 
+function cart() 
+
+{
+
+$total = 0;
+$item_quantity = 0;
+$item_name = 1;
+$item_number =1;
+$amount = 1;
+$quantity =1;
+foreach ($_SESSION as $name => $value) {
+
+
+
+
+
+if($value > 0 ) {
+
+if(substr($name, 0, 8 ) == "product_") {
+
+
+$length = strlen($name);
+
+$id = substr($name, 8 , $length);
+
+
+$query = query("SELECT * FROM product WHERE p_id = " . escape_string($id). " ");
+confirm($query);
+
+while($row = fetch_array($query)) {
+
+$sub = $row['p_price']*$value;
+$item_quantity +=$value;
+
+$p_image = display_image($row['p_image']);
+
+$product = <<<DELIMETER
+
+<tr>
+  <td>{$row['p_title']}<br>
+
+  <img width='100' src='img/{$p_image}'>
+
+  </td>
+  <td>&#36;{$row['p_price']}</td>
+  <td>{$value}</td>
+  <td>&#36;{$sub}</td>
+  <td><a class='btn btn-warning' href="cart.php?remove={$row['p_id']}"><span class='glyphicon glyphicon-minus'></span></a>   <a class='btn btn-success' href="cart.php?add={$row['p_id']}"><span class='glyphicon glyphicon-plus'></span></a>
+<a class='btn btn-danger' href="cart.php?delete={$row['p_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>
+  </tr>
+
+<input type="hidden" name="item_name_{$item_name}" value="{$row['p_title']}">
+<input type="hidden" name="item_number_{$item_number}" value="{$row['p_id']}">
+<input type="hidden" name="amount_{$amount}" value="{$row['p_price']}">
+<input type="hidden" name="quantity_{$quantity}" value="$value">
+
+
+DELIMETER;
+
+echo $product;
+
+$item_name++;
+$item_number++;
+$amount++;
+$quantity++;
+
+
+
+    $_SESSION['item_total'] = $total += $sub;
+    $_SESSION['item_quantity'] = $item_quantity;
+
+
+
+}
+
+
+
+
+           }
+
+      }
+
+    }
+
+
+}
 
 
 function get_products_play_page() {
@@ -341,11 +425,11 @@ $product = <<<DELIMETER
 
 
             <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="img/{$p_image}" alt="" style="height:"100px">
+                <div class="thumbnail" style ="height:auto" >
+                    <img style ="height:40%" src="img/{$p_image}" alt="" >
                     <p>{$row['desc']}</p>
                         
-                    <div class="caption">
+                    <div class="caption" style ="height:auto" >
                         <h4>{$row['p_title']}</h4>
                         <p>
                             <a href="cart.php?add={$row['p_id']}" class="btn btn-primary">Buy Now</a> <a href="product.php?id={$row['p_id']}" class="btn btn-default">More Details</a>

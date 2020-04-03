@@ -41,7 +41,7 @@ include("functions.php");
    
           <?php
           $query = query("SELECT * FROM category");
-confirm($query);
+    confirm($query);
           //$send_query = mysqli_query($connection , $query);
           while($row = mysqli_fetch_array($query))
           {
@@ -80,9 +80,9 @@ $product = <<<DELIMETER
 
 
             <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="img/{$p_image}" alt="">
-                    <div class="caption">
+                <div class="thumbnail" >
+                    <img style="height:auto" src="img/{$p_image}" alt="">
+                    <div class="caption" style="height:auto">
                         <h3>{$row['p_title']}</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
