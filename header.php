@@ -5,7 +5,7 @@
             <div class="navbar-header">
             <a class="navbar-brand" href="index.php">
           <img src="" alt="" >
-        ICLE</a>                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        theiclestore</a>                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

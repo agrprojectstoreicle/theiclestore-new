@@ -43,7 +43,6 @@ include("functions.php");
     <div class="container">
         <div class="row">
             <div class="col-md-14">
-
                 <div class="row carousel-holder">
 
                     <div class="col-md-12">
@@ -73,26 +72,19 @@ include("functions.php");
                         </div>
                     </div> 
                 </div>
-                
-
-               
+                               
 <div class="row">
 <?php get_products();   ?>
                                         
                          </div>
                     </div>
                     </div>
-
-             
-
-            
+                
         </div>
 
-    
 
 <?php
 include("footer.php");
-
 ?>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

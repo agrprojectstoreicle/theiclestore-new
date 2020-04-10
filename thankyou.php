@@ -1,7 +1,7 @@
 <?php
 include("config.php");
-include("functions.php");
-include("header.php");
+include("functions.php");?>
+<?php include("header.php");
 ?>
 
     <!-- Page Content -->
@@ -21,118 +21,13 @@ include("header.php");
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-            
+        <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>    
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- Page Content -->
-    </header>
+          
 
-   
-<?php 
-      
-      
-  if(isset($_GET['add'])) {
-
-
-    $query = query("SELECT * FROM product WHERE p_id=" . escape_string($_GET['add']). " ");
-    confirm($query);
-
-    while($row = fetch_array($query)) {
-      if($row['p_quantity'] != $_SESSION['product_' . $_GET['add']]) {
-
-        $_SESSION['product_' . $_GET['add']]+=1;
-        redirect("../public/check.php");
-
-
-      } else {
-
-
-        set_message("We only have " . $row['p_quantity'] . " " . "{$row['p_title']}" . " available");
-        redirect("../public/check.php");
-
-
-
-      }
-
-
-
-
-
-
-    }
-
-
-
-  // $_SESSION['product_' . $_GET['add']] +=1;
-
-  // redirect("index.php");
-
-
-  }
-
-      
-      
-      
-
-  if(isset($_GET['remove'])) {
-
-    $_SESSION['product_' . $_GET['remove']]--;
-
-    if($_SESSION['product_' . $_GET['remove']] < 1) {
-
-      unset($_SESSION['item_total']);
-      unset($_SESSION['item_quantity']);
-      redirect("../public/check.php");
-
-    } else {
-
-      redirect("../public/check.php");
-
-     }
-
-
-  }
-
-
- if(isset($_GET['delete'])) { 
-
-  $_SESSION['product_' . $_GET['delete']] = '0';
-  unset($_SESSION['item_total']);
-  unset($_SESSION['item_quantity']);
-
-  redirect("../public/check.php");
-
-
- }
-      
-
-
-
-  
-function show_paypal() {
-
-if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
-
-
-$paypal_button = <<<DELIMETER
-
-
- <input type="image" name="submit" border="0"
-    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-    alt="PayPal - The safer, easier way to pay online">
-
-DELIMETER;
-
-return $paypal_button;
-
-  }
-
-
-}
-
-
-
-function process_transaction() {
+            
+<?php function process_transaction() {
 
 
 
@@ -195,13 +90,19 @@ function process_transaction() {
 
         redirect("index.php");
 
-
     }
-
-
 
 }
 
+?>
 
-?>    
+
+    <!-- Page Content -->
+    <div class="container">
+
+<h1 class="text-center">Thanks for Placing the Order.</h1>
+
+    </div>
+    <!-- /.container -->
+
 <?php include("footer.php") ?>

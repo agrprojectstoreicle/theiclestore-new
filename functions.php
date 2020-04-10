@@ -287,8 +287,7 @@ $product = <<<DELIMETER
         <div class="caption">
             <h4 class="pull-right">&#36;{$row['p_price']}</h4>
             <h5><a href="product.php?id={$row['p_id']}">{$row['p_title']}</a>
-            </h5>
-             <a class="btn btn-primary" target="_blank" href="cart.php?add={$row['p_id']}">Add to cart</a>
+            </h5><a class="btn btn-primary" target="_blank" href="cart.php?add={$row['p_id']}">Add To Cart</a>
         </div>
 
 
@@ -370,8 +369,11 @@ $product = <<<DELIMETER
   <td>&#36;{$row['p_price']}</td>
   <td>{$value}</td>
   <td>&#36;{$sub}</td>
-  <td><a class='btn btn-warning' href="cart.php?remove={$row['p_id']}"><span class='glyphicon glyphicon-minus'></span></a>   <a class='btn btn-success' href="cart.php?add={$row['p_id']}"><span class='glyphicon glyphicon-plus'></span></a>
-<a class='btn btn-danger' href="cart.php?delete={$row['p_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>
+  <td>
+  <a class="btn-floating btn-large waves-effect waves-light black" href="cart.php?remove={$row['p_id']}"><i class="material-icons">-</i></a>
+  <a class="btn-floating btn-large waves-effect waves-light black" href="cart.php?add={$row['p_id']}"><i class="material-icons">+</i></a>
+  <a class="btn-floating btn-large waves-effect waves-light black" href="cart.php?delete={$row['p_id']}"><i class="material-icons">x</i></a>
+</td>
   </tr>
 
 <input type="hidden" name="item_name_{$item_name}" value="{$row['p_title']}">

@@ -1,8 +1,7 @@
-cu<?php
+<?php
 include("config.php");
 include("functions.php");
 include("header.php");
-
 ?>
 <?php
 require '../vendor/autoload.php';
@@ -182,13 +181,7 @@ if(isset($_POST['submit'])){
 
 
 
-
 }
-
-
-
-
-
 
 
 
@@ -211,15 +204,23 @@ if(isset($_POST['submit'])){
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-            
+        <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>    
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-          
-    
-    <!-- Page Content -->
+          <script>
+paypal.Button.render({
+ style: {
+ size: 'responsive'
+ size: 'small',
+ color: 'gold',
+ shape: 'pill',
+ label: 'checkout',
+ tagline: 'true'
+ }
+});
+</script>
+<!-- Page Content -->
     <div class="container">
-
-
 <!-- /.row --> 
 
 <div class="row">
@@ -232,7 +233,7 @@ if(isset($_POST['submit'])){
 <input type="hidden" name="business" value="g131amk@gmail.com">
     <input type="hidden" name="upload" value="1">
 <input type="hidden" name="currency_code" value="USD">
-    <table class="table table-striped">
+    <table class="table-responsive-lg">
         <thead>
           <tr>
            <th>Product</th>
@@ -251,11 +252,14 @@ if(isset($_POST['submit'])){
 
         </tbody>
     </table>
+  
+    <br>
+    <br>
+    <br>
     
-  <input type="image" name="submit"
-    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+  <input type="image" name="submit" style="a" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
     alt="PayPal - The safer, easier way to pay online">
-    
+  
 
 </form>
 
@@ -263,8 +267,8 @@ if(isset($_POST['submit'])){
  
 <!--  ***********CART TOTALS*************-->
             
-<div class="col-xs-4 pull-right ">
-<h2>Cart Total</h2>
+<div class="col-xs-4  ">
+<h4>Cart Total</h4>
 
 <table class="table table-bordered" cellspacing="0">
 
