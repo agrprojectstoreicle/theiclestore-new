@@ -1,103 +1,134 @@
-/*!
- * Start Bootstrap - Shop Homepage HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+    /*!
+     * Start Bootstrap - Shop Homepage HTML Template (http://startbootstrap.com)
+     * Code licensed under the Apache License v2.0.
+     * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+     */
 
-body {
-    
-    padding-top: 90px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
+    body {
+        padding-top: 90px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */   
+    }
+    .navbar 
+    {
+        background-color:black;
 
-.navbar 
+    }
+    .carousel-inner item
+    {
+        width: 100%; 
+
+    }
+    .navbar-header
+    {
+        padding-left: 150px;
+    }
+    .navbar .collapse  li a 
+    {
+     color:whitesmoke;
+        margin: 0;
+    }
+
+    div.container div.abc
+    {
+        margin-left: 55%;
+        margin-right: 25%;
+
+
+    }
+    div.container header.jumbotron
 {
-    background-color:white;
-    
-}
-.carousel-inner item
-{
-    width: 100%; 
-
+     width:127%;;
 }
 
-div.container 
-{
-    height: auto;
-    width: 100%;
-}
-.container 
-{
-margin-top: 0.5%;
-}
-.container img
-{
-margin-top:1%;
-}
-.nav-wrapper
-{
-    margin-top: 5px;
-    background-color:darkgray; 
-}
-.nav-wrapper li a
-{
-    color: black;
-}
+    div.container div.row
+    {
+        width: 111%;
+    }
 
-.slide-image {
-    width: 100%;
+    div.container 
+    {
+        height: auto;
+        width: 100%;
+    margin-left: 0;
+        margin-right: 0;
+    }
+    .carousel-inner
+    {
+        width: 100%;
+    }
+    .container 
+    {
+    margin-top: 0.2%;
+    }
+    .container img
+    {
+    margin-top:1%;
+    }
+    .nav-wrapper
+    {
+        width: 108%;
+        margin-top: 5px;
+        background-color:darkgray; 
+    }
+    .nav-wrapper li a
+    {
+        color: black;
+    }
 
-}
+    .slide-image {
+        width: 100%;
 
-.carousel-inner item 
-{
-    
-    width: 100%;
-    
-}
-.carousel-holder {
-    margin-bottom: 30px;
-    
+    }
 
-}
+    .carousel-inner item 
+    {
 
-.carousel-control,
-.item {
-    border-radius: 4px;
+        width: 100%;
 
-}
+    }
+    .carousel-holder {
+        margin-bottom: 30px;
 
-.caption {
-    height: 130px;
-    overflow: hidden;
-}
 
-.caption h4 {
-    white-space: nowrap;
-}
+    }
 
-.thumbnail img {
-    width: 110%;
-height: 50%;
- 
+    .carousel-control,
+    .item {
+        border-radius: 4px;
 
-}
+    }
 
-.ratings {
-    padding-right: 10px;
-    padding-left: 10px;
-    color: #d17581;
-}
+    .caption {
+        height: 130px;
+        overflow: hidden;
+    }
 
-.thumbnail {
-    padding: 0;
-    
-}
+    .caption h4 {
+        white-space: nowrap;
+    }
 
-.thumbnail .caption-full {
-    padding: 40px;
-    color: #333;
-}
+    .thumbnail img {
+        width: 110%;
+    height: 50%;
 
-footer {
-    margin: 50px 0;
-}
+
+    }
+
+    .ratings {
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #d17581;
+    }
+
+    .thumbnail {
+        padding: 0;
+
+    }
+
+    .thumbnail .caption-full {
+        padding: 40px;
+        color: #333;
+    }
+
+    footer {
+        margin: 50px 0;
+    }

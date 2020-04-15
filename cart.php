@@ -63,10 +63,6 @@ include("header.php");
 
 
 
-  // $_SESSION['product_' . $_GET['add']] +=1;
-
-  // redirect("index.php");
-
 
   }
 
@@ -169,11 +165,6 @@ function process_transaction() {
                         $item_quantity +=$value;
 
 
-        /*                $insert_report = query("INSERT INTO reports (product_id, order_id, product_title, product_price, product_quantity) VALUES('{$id}','{$last_id}','{$product_title}','{$product_price}','{$value}')");
-                        confirm($insert_report);
-
-
-*/
 
 
                     }

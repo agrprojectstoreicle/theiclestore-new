@@ -107,25 +107,6 @@ if(isset($_POST['submit'])){
 
 
 
-//                $details->setShipping(23)->setSubtotal($sub);
-//
-//
-//                $amount->setCurrency($currency)->setTotal($total)->setDetails($details);
-//
-//
-//                $transaction->setAmount($amount)->setItemList($itemList)->setDescription('Payment for something')->setInvoiceNumber(uniqid());
-//
-//
-//                $redirectUrls->setReturnUrl('http://localhost:8888/ecom/public')->setCancelUrl('http://localhost:8888/ecom/public/pay.php?success=false');
-//
-//
-//                $payment->setIntent('sale')->setPayer($payer)->setRedirectUrls($redirectUrls)->setTransactions([$transaction]);
-
-//
-
-
-
-
             }
 
 
@@ -143,38 +124,6 @@ if(isset($_POST['submit'])){
 
 
  }
-
-
-
-
-
-//
-//
-//    $items = array();
-//    $arr_length = count($value);
-//    for ($i = 0; $i < $arr_length; $i++) {
-//        $item[$i] = new Item();
-//        $item[$i]->setName($data[$i]['productName'])
-//            ->setCurrency($data[$i]['currency'])
-//            ->setQuantity($data[$i]['quantity'])
-//            ->setPrice($data[$i]['price'])
-//            ->setSku(uniqid());
-//
-//        $items[] = $item[$i];
-//    }
-//
-//    $itemList = new ItemList();
-//    $itemList->setItems($items);
-
-
-
-//
-//
-//        echo "<pre>";
-//
-//        var_dump($itemList);
-//
-//        echo "</pre>";
 
 
 

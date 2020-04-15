@@ -271,8 +271,6 @@ if($page != $lastPage){
 
 
 
-// Remember we use query 2 below :)
-
 while($row = fetch_array($query2)) {
 
 $p_image = display_image($row['p_image']);

@@ -41,19 +41,16 @@ include("header.php");
 </head>
     <body>
     <div class="container">
-   <div class="col-md-14">
+   
+   
+        <div class="abc"><h4>PLAY & WIN </h4></div>
+      <h4 class="text-center bg-warning"></h4>
 
-      <header>
-            <h1 class="text-center">PLAY & WIN </h1>
-            <h2 class="text-center bg-warning">
 
-</h2>
-    </header>
+        </div>
 <div class="container">
-
+<div class="row">
         <!-- Jumbotron Header -->
-
-        <hr>
 
         <!-- /.row -->
         <div class="row text-center">
@@ -64,6 +61,7 @@ include("header.php");
     </div>
 
         </div>
+                
 
 <?php    
 include("footer.php");
