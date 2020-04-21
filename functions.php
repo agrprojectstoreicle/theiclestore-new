@@ -129,7 +129,6 @@ confirm($query);
 
 $rows = mysqli_num_rows($query); // Get total of mumber of rows from the database
 
-
 if(isset($_GET['page'])){ //get page from URL if its there
 
     $page = preg_replace('#[^0-9]#', '', $_GET['page']);//filter everything but numbers
@@ -279,6 +278,7 @@ $product = <<<DELIMETER
 
 <div class="col-sm-4 col-lg-4 col-md-4" >
     <div class="thumbnail"  >
+    <div class="img-box">
         <a href="product.php?id={$row['p_id']}"><img style="height:auto" src="img/{$p_image}" alt=""></a>
         <p>{$row['p_description']}</p>
             
@@ -289,7 +289,7 @@ $product = <<<DELIMETER
         </div>
 
 
-       
+       </div>
     </div>
 </div>
 
@@ -424,13 +424,15 @@ $p_image = display_image($row['p_image']);
 $product = <<<DELIMETER
 
 
-            <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="col-md-3 col-sm-6 ">
                 <div class="thumbnail" style ="height:auto" >
-                    <img style ="height:40%" src="img/{$p_image}" alt="" >
-                    <p>{$row['desc']}</p>
+                    <img style ="width:auto;height:60%" src="img/{$p_image}" alt="" >
                         
                     <div class="caption" style ="height:auto" >
-                        <h4>{$row['p_title']}</h4>
+                    
+                    <p>{$row['desc']}</p>
+                    
+                    <h4>{$row['p_title']}</h4>
                         <p>
                             <a href="cart.php?add={$row['p_id']}" class="btn btn-primary">Buy Now</a> <a href="product.php?id={$row['p_id']}" class="btn btn-default">More Details</a>
                         </p>

@@ -140,6 +140,10 @@ function process_transaction() {
         $status = $_GET['st'];
         $total = 0;
         $item_quantity = 0;
+        
+                    $send_order = query("INSERT INTO order (o_amount, o_transaction, o_currency, o_status ) VALUES('{$amount}', '{$transaction}','{$currency}','{$status}')");
+                    $last_id =last_id();
+                    confirm($send_order);
 
         foreach ($_SESSION as $name => $value) {
 

@@ -4,6 +4,7 @@ include("functions.php");
 include("header.php");
 ?>
 <?php
+
 require '../vendor/autoload.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
@@ -14,33 +15,22 @@ use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 
-
-
-
-class product{
-
-
+class product
+{
     public $title;
     public $price;
     public $quantity;
     public $currency;
     public $subTotal;
-
-
-
 }
 
-
-
-
 if(isset($_POST['submit'])){
-
 
     $paypal = new \PayPal\Rest\ApiContext( new \PayPal\Auth\OAuthTokenCredential('ARDAWL5uQqoA7rRFuj8WzzWc4FnO9Ps9hLzttTHOKTqlUryGeolQULWo_Ft_106OnKUABn7Zkz72f9z_','EE4pTRHXUnYvMa8fO9tYmHePBhfU35LbsjoO9RjJa7r-4Ud0kga3tofdxo65-ptRWeVGTrM47MYLXGm_'));
     $payer = new Payer();
     $payer->setPaymentMethod('paypal');
 
-//    $item = new Item();
+//  $item = new Item();
 
     $itemList = new ItemList();
 
@@ -55,12 +45,10 @@ if(isset($_POST['submit'])){
     $redirectUrls = new redirectUrls();
 
     $payment = new Payment();
-
-
+    
     $x = 0;
+    
     $total =0;
-
-
 
 
  if(isset($_POST)){
@@ -70,7 +58,6 @@ if(isset($_POST['submit'])){
 
 
             for($i=0; $i < count($_POST['p_title']); $i++) {
-
 
                 $product[$i] = new Product;
 
@@ -94,40 +81,15 @@ if(isset($_POST['submit'])){
 
                 print_r($product[$i]);
 
-
                 $products[] = $product[$i];
-
 
                 $itemList->setItems($products);
 
-
-
                 echo "</pre>";
-
-
-
 
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  }
-
-
-
-
 
 
 }
@@ -194,8 +156,7 @@ paypal.Button.render({
         </thead>
         <tbody>
 
-
-          <?php cart(); ?>
+<?php cart(); ?>
  
 
 
@@ -235,7 +196,6 @@ echo isset($_SESSION['item_quantity']) ? $_SESSION['item_quantity'] : $_SESSION[
 <th>Order Total</th>
 <td><strong><span class="amount">&#36;<?php 
 echo isset($_SESSION['item_total']) ? $_SESSION['item_total'] : $_SESSION['item_total'] = "0";?>
-
 
 
 </span></strong> </td>

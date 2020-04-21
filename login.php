@@ -7,6 +7,8 @@ include("header.php");
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: index.php");
+  
+   
     exit;
 }
  
@@ -68,6 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Redirect user to welcome page
                             header("location: play.php");
+                                echo '<a id="login" style="visibility: hidden"><img style="margin-top:1px;" ></a>';
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
