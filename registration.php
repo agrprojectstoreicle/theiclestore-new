@@ -3,8 +3,6 @@
 include("header.php"); 
 include("config.php"); 
 
-
-
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -52,7 +50,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
-    
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = "Please confirm password.";     
@@ -127,6 +124,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <div class="container">
+       <li>
+                        <a id="login" href="login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="registration.php">Registration</a>
+                    </li>
+                
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

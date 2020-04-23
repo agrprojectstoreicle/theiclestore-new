@@ -42,6 +42,13 @@ include("functions.php");
 
   <!-- Page Content -->
     <div class="container">
+             <li>
+                        <a id="login" href="login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="registration.php">Registration</a>
+                    </li>
+                
         <div class="row" >
             <div class="col-md-14" >
                 <div class="row carousel-holder" >
