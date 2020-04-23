@@ -426,7 +426,7 @@ $product = <<<DELIMETER
 
             <div class="col-md-3 col-sm-6 ">
                 <div class="thumbnail" style ="height:auto" >
-                    <img style ="width:auto;height:60%" src="img/{$p_image}" alt="" >
+                    <img style ="width:auto;height:40%" src="img/{$p_image}" alt="" >
                         
                     <div class="caption" style ="height:auto" >
                     

@@ -1,4 +1,3 @@
-
 <?php include("header.php");
 include("config.php");
 include("functions.php");
@@ -49,7 +48,7 @@ include("functions.php");
 
                         <?php send_message(); ?>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
@@ -79,7 +78,6 @@ include("functions.php");
                 </div>
             </div>
         </div>
-
         <?php    
 include("footer.php");
 

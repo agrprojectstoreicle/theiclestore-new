@@ -3,6 +3,14 @@
 include("config.php");
 include("functions.php");
 include("header.php");
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -39,9 +47,17 @@ include("header.php");
 
 <!-- Page Content -->
 </head>
+
     <body>
-    <div class="container">
-   
+
+        <div class="container">
+    <div class="page-header">
+        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+    </div>
+    <p>
+        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+    </p>   
    
         <div class="abc"><h4>PLAY & WIN </h4></div>
       <h4 class="text-center bg-warning"></h4>
@@ -52,11 +68,9 @@ include("header.php");
 <div class="row">
         <!-- Jumbotron Header -->
 
-        <!-- /.row -->
-        <div class="row text-center">
+        <!-- /.row --><div class="row text-center">
 
-    <?php get_products_play_page(); 
-?>
+    <?php get_products_play_page(); ?>
         </div>
     </div>
 

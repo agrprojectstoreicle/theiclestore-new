@@ -1,20 +1,15 @@
 <?php
 // Initialize the session
-
 include("header.php");
+include("config.php");
 
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
-  
-   
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+{
+    header("location: welcome.php");
     exit;
+
 }
- 
-// Include config file
-require_once "config.php";
- 
+
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
@@ -54,7 +49,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                if(mysqli_stmt_num_rows($stmt) == 1){   
+    
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $user_id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
@@ -67,8 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
                      
-                            
-                            // Redirect user to welcome page
+                            // Redirect user to play page
                             header("location: play.php");
                                 echo '<a id="login" style="visibility: hidden"><img style="margin-top:1px;" ></a>';
                         } else{
@@ -103,9 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>ICLE</title>
-
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -124,46 +117,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    
 </head>
     <body>
     <div class="container">
-
-      <header>
+          <li>
+                        <a id="login" href="login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="registration.php">Registration</a>
+                    </li>
+                
+        <header>
             <h1 class="text-center">Login</h1>
-            <h2 class="text-center bg-warning">
-
-
-
-</h2>
-       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
-            </div>
-            <p>Don't have an account? <a href="registration.php">Sign up now</a>.</p>
-        </form>
-    </header>
-
-
+            <h2 class="text-center bg-warning"></h2>
+<form name="login" method="post" >
+  <header>Login</header>
+  <p style="color:red;"><?php echo $_SESSION['msg'];?><?php echo $_SESSION['msg']="";?></p>
+  <label>Username <span>*</span></label>
+  <input name="username" type="text" value="" required />
+  <label>Password <span>*</span></label>
+  <input name="password" type="password" value="" required />
+  <button type="submit" name="login">Login</button>
+</form>
+        </header>
         </div>
-
 <?php    
 include("footer.php");
-
 ?>
-    
         <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
