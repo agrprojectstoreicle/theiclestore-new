@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      
                             // Redirect user to play page
                             header("location: play.php");
-                                echo '<a id="login" style="visibility: hidden"><img style="margin-top:1px;" ></a>';
+                                echo '<a id="login" style="visibility: hidden"></a>';
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";

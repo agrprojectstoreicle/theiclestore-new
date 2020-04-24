@@ -7,7 +7,6 @@ include("functions.php");
 
 <?php
 // Initialize the session
-session_start();
  
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -49,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare an update statement
         $sql = "UPDATE users SET password = ? WHERE id = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($connection, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
             
@@ -73,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    mysqli_close($link);
+    mysqli_close($connection);
 }
 ?>
 
@@ -112,8 +111,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   <!-- Page Content -->
     <div class="container">
+        
         <div class="row" >
-           <h2>Reset Password</h2>
+            <li>  
+                <a id="login" href="login.php">Login</a>
+                    </li>
+                <li>
+                        <a href="registration.php">Registration</a>
+                    </li>
+         
+            <h2>Reset Password</h2>
         <p>Please fill out this form to reset your password.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
             <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
@@ -128,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-link" href="welcome.php">Cancel</a>
+                <a class="btn btn-link" href="index.php">Cancel</a>
             </div>
         </form>
         
